@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Game</title>
+    <<script>
+    const config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    const game = new Phaser.Game(config);
+
+    function preload() {
+        // Preload assets here (if any)
+    }
+
+    function create() {
+        // Generate maze and player
+        this.player = this.add.rectangle(50, 50, 20, 20, 0x00ff00); // Player is represented by a green rectangle
+        this.cursors = this.input.keyboard.createCursorKeys(); // Enable arrow key input
+    }
+
+    function update() {
+        // Handle player movement
+        if (this.cursors.left.isDown) {
+            this.player.x -= 2;
+        } else if (this.cursors.right.isDown) {
+            this.player.x += 2;
+        }
+
+        if (this.cursors.up.isDown) {
+            this.player.y -= 2;
+        } else if (this.cursors.down.isDown) {
+            this.player.y += 2;
+        }
+
+        // Add collision detection with walls (if any)
+    }
+</script>
+>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script>
+        // Your game code will go here
+    </script>
+</body>
+</html>
